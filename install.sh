@@ -3,10 +3,10 @@
 TMPDIR=`mktemp -d`
 pushd $TMPDIR
 
-wget -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.4.tar.gz
+wget -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.5.tar.gz
 tar xvf ./archive.tar.gz
 
-OPTDIR=bekobrew-
+OPTDIR=bekobrew-0.0.5
 
 mkdir -p ${HOME}/local/opt || true
 cp -r ${OPTDIR}/ ${HOME}/local/opt/
