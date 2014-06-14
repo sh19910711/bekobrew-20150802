@@ -1,12 +1,19 @@
+# Usage: makepkg [...]
+
 current_dir=`pwd`
-source_dir=${current_dir}/src
-package_dir=${current_dir}/pkg
 
 shopt -u extglob
-source BKGBUILD
+source ${current_dir}/BEKOBUILD
 shopt -s extglob
 
-rm -rf ${package_dir} || true
+tmp_dir=`mktemp -d`
+source_dir=${tmp_dir}/source
+package_dir=${tmp_dir}/package
+
+pushd ${tmp_dir}
+
+# name-1.2-1.tar.bz2
+archive_file=${package_name}-${package_version}-${package_release}.tar.bz2
 
 # create source dir
 mkdir -p "${source_dir}"
@@ -21,14 +28,14 @@ for url in $source; do
   filename=${BASH_REMATCH[1]}
   tar xvf ${filename}
 done
-cd ${current_dir}
-
-cd ${current_dir}
 
 # packaging
-build
-
+cd ${current_dir} && build
+cd ${current_dir} && package
+cd ${package_dir} && tar zcvf ../${archive_file} *
 cd ${current_dir}
 
-package
+popd
 
+cp ${tmp_dir}/${archive_file} ${current_dir}/
+rm -rf ${tmp_dir}
