@@ -29,9 +29,15 @@ for url in $source; do
   tar xvf ${filename}
 done
 
-# packaging
+echo '==> Building...'
 cd ${current_dir} && build
+
+echo '==> Checking...'
+cd ${current_dir} && check
+
+echo '==> Packaging...'
 cd ${current_dir} && package
+
 cd ${package_dir} && tar zcvf ../${archive_file} *
 cd ${current_dir}
 
