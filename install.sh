@@ -8,10 +8,10 @@ function install_bekobrew() {
   local tmpdir=`mktemp -d`
   pushd $tmpdir
 
-  wget -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.11.tar.gz
+  wget -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.12.tar.gz
   tar xvf ./archive.tar.gz
 
-  OPTDIR=bekobrew-0.0.11
+  OPTDIR=bekobrew-0.0.12
 
   mkdir -p ${HOME}/local/opt || true
   cp -r ${OPTDIR}/ ${HOME}/local/opt/
@@ -45,12 +45,17 @@ function install_develop_bekobrew() {
   rm -rf $tmpdir
 }
 
+GETOPT=`getopt -q -l develop -- "$@"` ; [ $? != 0 ] && usage_exit
+eval set -- "$GETOPT"
+
 while true
 do
   case $1 in
-  develop) FLAG_DEVELOP=yes ; shift
+  --develop) FLAG_DEVELOP=yes ; shift
         ;;
-  *)    shift ; break
+  --)   shift ; break
+        ;;
+  *)    usage_exit
         ;;
   esac
 done
