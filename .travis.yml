@@ -7,4 +7,4 @@ before_script:
 script:
   - ./script/travis/bootstrap
 env:
-  - secure: "UU0h9u1/dF12ZOAGcCBOo6gWvK7h4rKRtPZjnzWUaUE2TjbQC6DTD7dCPodvD/EIXiLyY5Y45VNcFONKrR8GLDIxu2UKR97u76jpZm92Qm8LqI6pLyipfY5g4Xjsze/DnQ/XmoTqbvx3nO2FhGF18gtPNWvCWM0X/1GZOdFr65M="
+  - secure: "WjvNyV5zbz0YwPYA5/LyvzbAdKk4JSUlk5s1nAFTcOaAXYnfN0gGusH66KtE3GiL6J5vLe12gj73frovvd6YZRgzj91q3EIp55Y+VEkFIoP4TAFwtSSxCjnr+h9fTbkyQA8uL0ThvOvJ+0newzIzaPiaM5oT8bPUqR0wZNgkuqw="
