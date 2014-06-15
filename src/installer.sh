@@ -26,28 +26,31 @@ function install_develop_bekobrew() {
   local tmpdir=`mktemp -d`
   pushd $tmpdir
 
-  exit 0
   git clone --single-branch -b develop git://github.com/sh19910711/bekobrew.git
   cd bekobrew
   make bekobrew
-  echo 'export PATH='"`pwd`"'/tmp:${PATH}' >> ~/.bashrc
+
+  source config
+  local optdir=bekobrew-${BEKOBREW_VERSION}
+
+  mkdir -p ${optdir}/bin
+  cp tmp/bekobrew ${optdir}/bin
+
+  mkdir -p ${HOME}/local/opt || true
+  cp -r ${optdir}/ ${HOME}/local/opt/
+  echo 'export PATH=${HOME}/local/opt/'"${optdir}"'/bin:${PATH}' >> ~/.bashrc
 
   popd # tmpdir
-}
 
-GETOPT=`getopt -q -o h -l develop -- "$@"` ; [ $? != 0 ] && usage_exit
-eval set -- "$GETOPT"
+  rm -rf $tmpdir
+}
 
 while true
 do
   case $1 in
-  --develop) FLAG_DEVELOP=yes ; shift
+  develop) FLAG_DEVELOP=yes ; shift
         ;;
-  -h)   usage_exit
-        ;;
-  --)   shift ; break
-        ;;
-  *)    usage_exit
+  *)    shift ; break
         ;;
   esac
 done
