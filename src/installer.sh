@@ -45,12 +45,17 @@ function install_develop_bekobrew() {
   rm -rf $tmpdir
 }
 
+GETOPT=`getopt -q -l develop -- "$@"` ; [ $? != 0 ] && usage_exit
+eval set -- "$GETOPT"
+
 while true
 do
   case $1 in
-  develop) FLAG_DEVELOP=yes ; shift
+  --develop) FLAG_DEVELOP=yes ; shift
         ;;
-  *)    shift ; break
+  --)   shift ; break
+        ;;
+  *)    usage_exit
         ;;
   esac
 done
