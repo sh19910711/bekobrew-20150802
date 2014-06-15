@@ -4,7 +4,7 @@
 git push --quiet https://${GITHUB_TOKEN}@github.com/u-aizu/bekobrew.git master:bekobrew
 
 # update bekobrew command on u-aizu/master
-local bekobrew_master_dir=tmp/bekobrew-master
+bekobrew_master_dir=tmp/bekobrew-master
 git clone --single-branch -b master git://github.com/u-aizu/bekobrew.git ${bekobrew_master_dir}
 mkdir -p ${bekobrew_master_dir}/bin/ || true
 cp tmp/bekobrew ${bekobrew_master_dir}/bin/bekobrew
