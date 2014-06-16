@@ -17,7 +17,7 @@ tmp/install.sh: src/installer.sh
 publish_bekobrew: tmp/bekobrew
 	./script/travis/publish_bekobrew
 
-publish_installer: tmp/installer.sh
+publish_installer: tmp/install.sh
 	./script/travis/publish_installer
 
 test: bekobrew
