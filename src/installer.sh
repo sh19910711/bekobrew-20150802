@@ -17,6 +17,9 @@ function install_bekobrew() {
   cp -r ${OPTDIR}/ ${HOME}/local/opt/
   echo 'export PATH=${HOME}/local/opt/'"${OPTDIR}"'/bin:${PATH}' >> ~/.bashrc
 
+  echo 'Run below command:'
+  echo 'export PATH=${HOME}/local/opt/'"${optdir}"'/bin:${PATH}'
+
   popd  # tmpdir
 
   rm -rf $tmpdir
@@ -40,27 +43,30 @@ function install_develop_bekobrew() {
   cp -r ${optdir}/ ${HOME}/local/opt/
   echo 'export PATH=${HOME}/local/opt/'"${optdir}"'/bin:${PATH}' >> ~/.bashrc
 
+  echo 'Run below command:'
+  echo 'export PATH=${HOME}/local/opt/'"${optdir}"'/bin:${PATH}'
+
   popd # tmpdir
 
   rm -rf $tmpdir
 }
 
-GETOPT=`getopt -q -l develop -- "$@"` ; [ $? != 0 ] && usage_exit
-eval set -- "$GETOPT"
+ARGS=$@
+eval set -- "$ARGS"
 
 while true
 do
   case $1 in
-  --develop) FLAG_DEVELOP=yes ; shift
+  --develop) FLAG_DEVELOP=1 ; shift
         ;;
   --)   shift ; break
         ;;
-  *)    usage_exit
+  *)    break
         ;;
   esac
 done
 
-if [[ ${FLAG_DEVELOP} ]]; then
+if [ "${FLAG_DEVELOP}" == "1" ]; then
   install_develop_bekobrew
 else
   install_bekobrew

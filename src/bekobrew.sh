@@ -6,10 +6,10 @@
 
 <%
 # 埋め込むソースコードのリスト
-list = [
-  "makepkg",
-  "hello",
-]
+list = Dir.glob(File.expand_path("../bekobrew/**/*.sh", __FILE__))
+list = list.map do |p|
+  p.match(/.*\/(.*).sh$/)[1]
+end
 %>
 
 # usage: invoke_subcommand command arg1
