@@ -1,3 +1,5 @@
+.PHONY: all test
+
 all: bekobrew installer
 
 bekobrew: tmp/bekobrew
@@ -7,9 +9,9 @@ tmp/bekobrew: src/bekobrew.sh src/bekobrew/*.sh
 
 gh-pages: installer
 
-installer: tmp/installer.sh
+installer: tmp/install.sh
 
-tmp/installer.sh: src/installer.sh
+tmp/install.sh: src/installer.sh
 	./script/build_installer
 
 publish_bekobrew: tmp/bekobrew
@@ -17,3 +19,6 @@ publish_bekobrew: tmp/bekobrew
 
 publish_installer: tmp/installer.sh
 	./script/travis/publish_installer
+
+test: bekobrew
+	find test/ -name test_*.sh -exec bash {} \;
