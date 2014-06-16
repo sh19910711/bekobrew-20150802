@@ -9,9 +9,9 @@ tmp/bekobrew: src/bekobrew.sh src/bekobrew/*.sh
 
 gh-pages: installer
 
-installer: tmp/installer.sh
+installer: tmp/install.sh
 
-tmp/installer.sh: src/installer.sh
+tmp/install.sh: src/installer.sh
 	./script/build_installer
 
 publish_bekobrew: tmp/bekobrew
