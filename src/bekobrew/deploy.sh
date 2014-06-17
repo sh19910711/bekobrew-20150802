@@ -1,8 +1,11 @@
+# Usage: bekobrew deploy {archive-file}
+# e.g. bekobrew deploy hello-2.9-1.tar.bz
+
 function deploy_package() {
   local archive_file=$1
-  local local_dir=$HOME/local/`uname -s`-`uname -m`
+  local local_dir=${HOME}/local/`uname -s`-`uname -m`
   mkdir -p ${local_dir} || true
-  tar -C ${local_dir} xvf ${archive_file}
+  tar xvf ${archive_file} -C ${local_dir}
 }
 
 deploy_package $1
