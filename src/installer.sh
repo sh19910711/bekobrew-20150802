@@ -43,6 +43,7 @@ function install_develop_bekobrew() {
   mkdir -p ${HOME}/local/opt || true
   cp -r ${optdir}/ ${HOME}/local/opt/
   echo 'export PATH=${HOME}/local/opt/'"${optdir}"'/bin:${PATH}' >> ~/.bashrc
+  echo 'export PATH=${HOME}/local/`uname -s`-`uname -m`/bin'"${optdir}"'/bin:${PATH}' >> ~/.bashrc
 
   echo 'Run below command:'
   echo 'export PATH=${HOME}/local/opt/'"${optdir}"'/bin:${PATH}'
