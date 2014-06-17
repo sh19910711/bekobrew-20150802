@@ -8,10 +8,10 @@ function install_bekobrew() {
   local tmpdir=`mktemp -d`
   pushd $tmpdir
 
-  wget -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.18.tar.gz
+  wget -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.19.tar.gz
   tar xvf ./archive.tar.gz
 
-  OPTDIR=bekobrew-0.0.18
+  OPTDIR=bekobrew-0.0.19
 
   mkdir -p ${HOME}/local/opt || true
   cp -r ${OPTDIR}/ ${HOME}/local/opt/
@@ -43,7 +43,7 @@ function install_develop_bekobrew() {
   mkdir -p ${HOME}/local/opt || true
   cp -r ${optdir}/ ${HOME}/local/opt/
   echo 'export PATH=${HOME}/local/opt/'"${optdir}"'/bin:${PATH}' >> ~/.bashrc
-  echo 'export PATH=${HOME}/local/`uname -s`-`uname -m`/bin'"${optdir}"'/bin:${PATH}' >> ~/.bashrc
+  echo 'export PATH=${HOME}/local/`uname -s`-`uname -m`/bin:${PATH}' >> ~/.bashrc
 
   echo 'Run below command:'
   echo 'export PATH=${HOME}/local/opt/'"${optdir}"'/bin:${PATH}'
