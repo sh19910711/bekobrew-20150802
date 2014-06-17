@@ -36,6 +36,7 @@ function install_develop_bekobrew() {
   source config
   local optdir=bekobrew-${BEKOBREW_VERSION}
 
+  rm -rf ${optdir} || true
   mkdir -p ${optdir}/bin
   cp tmp/bekobrew ${optdir}/bin
 
