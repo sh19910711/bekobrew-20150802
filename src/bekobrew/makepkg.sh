@@ -1,47 +1,46 @@
 # Usage: makepkg [...]
 
-current_dir=`pwd`
+function beko_config() {
+  ./configure --prefix=${HOME}/local/`uname -s`-`uname -m` $@
+}
 
-shopt -u extglob
-source ${current_dir}/BEKOBUILD
-shopt -s extglob
+function makepkg() {
+  local current_dir=`pwd`
 
-tmp_dir=`mktemp -d`
-source_dir=${tmp_dir}/source
-package_dir=${tmp_dir}/package
+  shopt -u extglob
+  source ${current_dir}/BEKOBUILD
+  shopt -s extglob
 
-pushd ${tmp_dir}
+  local tmp_dir=`mktemp -d`
+  local source_dir=${tmp_dir}/source
+  local package_dir=${tmp_dir}/package
 
-# name-1.2-1.tar.bz2
-archive_file=${package_name}-${package_version}-${package_release}.tar.bz2
+  pushd ${tmp_dir}
 
-# create source dir
-mkdir -p "${source_dir}"
-chmod a-s "${source_dir}"
+  # create source dir
+  mkdir -p "${source_dir}"
+  chmod a-s "${source_dir}"
 
-cd ${source_dir}
+  cd ${source_dir}
 
-# download
-for url in $source; do
-  wget -c $url
-  [[ "$url" =~ .*\/(.+)$ ]]
-  filename=${BASH_REMATCH[1]}
-  tar xvf ${filename}
-done
+  # download
+  for url in $source; do
+    wget -c $url
+    [[ "$url" =~ .*\/(.+)$ ]]
+    filename=${BASH_REMATCH[1]}
+    tar xvf ${filename}
+  done
 
-echo '==> Building...'
-cd ${current_dir} && build
+  echo '==> Building...'
+  cd ${current_dir} && build
 
-echo '==> Checking...'
-cd ${current_dir} && check
+  echo '==> Checking...'
+  cd ${current_dir} && check
 
-echo '==> Packaging...'
-cd ${current_dir} && package
+  echo '==> Packaging...'
+  cd ${current_dir} && package
 
-cd ${package_dir} && tar zcvf ../${archive_file} *
-cd ${current_dir}
+  popd
 
-popd
-
-cp ${tmp_dir}/${archive_file} ${current_dir}/
-rm -rf ${tmp_dir}
+  rm -rf ${tmp_dir}
+}
