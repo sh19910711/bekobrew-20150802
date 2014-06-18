@@ -25,7 +25,7 @@ function makepkg() {
 
   # download
   for url in $source; do
-    wget -c $url
+    wget --no-check-certificate -c $url
     [[ "$url" =~ .*\/(.+)$ ]]
     filename=${BASH_REMATCH[1]}
     tar xvf ${filename}

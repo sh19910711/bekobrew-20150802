@@ -8,7 +8,7 @@ function install_bekobrew() {
   local tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
   pushd $tmpdir
 
-  wget -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/<%= ENV['BEKOBREW_VERSION'] %>.tar.gz
+  wget --no-check-certificate -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/<%= ENV['BEKOBREW_VERSION'] %>.tar.gz
   tar xvf ./archive.tar.gz
 
   local optdir=bekobrew-<%= ENV['BEKOBREW_VERSION'] %>
