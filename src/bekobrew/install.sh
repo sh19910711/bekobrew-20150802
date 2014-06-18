@@ -8,7 +8,6 @@ function install_package() {
   cd $1
   source BEKOBUILD
   bekobrew makepkg
-  bekobrew deploy ${package_name}-${package_version}-${package_release}.tar.bz2
   popd
 }
 
