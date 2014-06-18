@@ -9,7 +9,7 @@ function get_package_info() {
   package_fullname=${package_name}-${package_version}-${package_release}
 }
 
-tmpdir=`mktemp -d`
+tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
 pushd ${tmpdir}
 get_package_info $1
 echo ${package_desc}

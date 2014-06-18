@@ -2,7 +2,7 @@
 # e.g. bekobrew install hello
 
 function install_package() {
-  local tmpdir=`mktemp -d`
+  local tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
   pushd ${tmpdir}
   bekobrew get $1
   cd $1
