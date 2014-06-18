@@ -5,13 +5,13 @@ function usage_exit() {
 }
 
 function install_bekobrew() {
-  local tmpdir=`mktemp -d`
+  local tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
   pushd $tmpdir
 
-  wget -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.25.tar.gz
+  wget -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.26.tar.gz
   tar xvf ./archive.tar.gz
 
-  local optdir=bekobrew-0.0.25
+  local optdir=bekobrew-0.0.26
 
   mkdir -p ${HOME}/local/opt || true
   cp -r ${optdir}/ ${HOME}/local/opt/
@@ -34,7 +34,7 @@ function install_bekobrew() {
 }
 
 function install_develop_bekobrew() {
-  local tmpdir=`mktemp -d`
+  local tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
   pushd $tmpdir
 
   git clone --single-branch -b develop git://github.com/sh19910711/bekobrew.git
