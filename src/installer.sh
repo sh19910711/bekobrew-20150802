@@ -15,15 +15,22 @@ function install_bekobrew() {
 
   mkdir -p ${HOME}/local/opt || true
   cp -r ${OPTDIR}/ ${HOME}/local/opt/
-  echo 'export PATH=${HOME}/local/opt/'"${OPTDIR}"'/bin:${PATH}' >> ~/.bashrc
-  echo 'export PATH=${HOME}/local/`uname -s`-`uname -m`/bin:${PATH}' >> ~/.bashrc
 
-  echo 'Run below command:'
-  echo 'export PATH=${HOME}/local/opt/'"${optdir}"'/bin:${PATH}'
+  rm -f ${HOME}/local/opt/bekobrew || true
+  ln -s ${HOME}/local/opt/${optdir} ${HOME}/local/opt/bekobrew
+
+  local bekobrew_path='export PATH=${HOME}/local/opt/bekobrew/bin:${PATH}'
+  echo ${bekobrew_path} >> ~/.bashrc
+  echo 'export PATH=${HOME}/local/`uname -s`-`uname -m`/bin:${PATH}' >> ~/.bashrc
+  echo 'export LD_LIBRARY_PATH=${HOME}/local/`uname -s`-`uname -m`/lib:${PATH}' >> ~/.bashrc
 
   popd  # tmpdir
 
   rm -rf $tmpdir
+
+  echo ''
+  echo 'Please restart shell.'
+  echo ''
 }
 
 function install_develop_bekobrew() {
@@ -43,15 +50,22 @@ function install_develop_bekobrew() {
 
   mkdir -p ${HOME}/local/opt || true
   cp -r ${optdir}/ ${HOME}/local/opt/
-  echo 'export PATH=${HOME}/local/opt/'"${optdir}"'/bin:${PATH}' >> ~/.bashrc
-  echo 'export PATH=${HOME}/local/`uname -s`-`uname -m`/bin:${PATH}' >> ~/.bashrc
 
-  echo 'Run below command:'
-  echo 'export PATH=${HOME}/local/opt/'"${optdir}"'/bin:${PATH}'
+  rm -f ${HOME}/local/opt/bekobrew || true
+  ln -s ${HOME}/local/opt/${optdir} ${HOME}/local/opt/bekobrew
+
+  local bekobrew_path='export PATH=${HOME}/local/opt/bekobrew/bin:${PATH}'
+  echo ${bekobrew_path} >> ~/.bashrc
+  echo 'export PATH=${HOME}/local/`uname -s`-`uname -m`/bin:${PATH}' >> ~/.bashrc
+  echo 'export LD_LIBRARY_PATH=${HOME}/local/`uname -s`-`uname -m`/lib:${PATH}' >> ~/.bashrc
 
   popd # tmpdir
 
   rm -rf $tmpdir
+
+  echo ''
+  echo 'Please restart shell.'
+  echo ''
 }
 
 ARGS=$@
