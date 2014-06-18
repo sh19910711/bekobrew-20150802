@@ -11,11 +11,11 @@ function makepkg() {
   source ${current_dir}/BEKOBUILD
   shopt -s extglob
 
-  local tmp_dir=`mktemp -d`
-  local source_dir=${tmp_dir}/source
-  local package_dir=${tmp_dir}/package
+  local tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
+  local source_dir=${tmpdir}/source
+  local package_dir=${tmpdir}/package
 
-  pushd ${tmp_dir}
+  pushd ${tmpdir}
 
   # create source dir
   mkdir -p "${source_dir}"
@@ -42,7 +42,7 @@ function makepkg() {
 
   popd
 
-  rm -rf ${tmp_dir}
+  rm -rf ${tmpdir}
 }
 
 makepkg $@
