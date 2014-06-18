@@ -13,7 +13,7 @@ tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
 pushd ${tmpdir}
 get_package_info $1
 echo ${package_desc}
-wget -c ${package_url}
+wget --no-check-certificate -c ${package_url}
 tar xvf ${package_fullname}.tar.bz2
 popd
 mkdir -p ./${package_name} || true
