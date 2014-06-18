@@ -11,10 +11,10 @@ function install_bekobrew() {
   wget -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/<%= ENV['BEKOBREW_VERSION'] %>.tar.gz
   tar xvf ./archive.tar.gz
 
-  OPTDIR=bekobrew-<%= ENV['BEKOBREW_VERSION'] %>
+  local optdir=bekobrew-<%= ENV['BEKOBREW_VERSION'] %>
 
   mkdir -p ${HOME}/local/opt || true
-  cp -r ${OPTDIR}/ ${HOME}/local/opt/
+  cp -r ${optdir}/ ${HOME}/local/opt/
 
   rm -f ${HOME}/local/opt/bekobrew || true
   ln -s ${HOME}/local/opt/${optdir} ${HOME}/local/opt/bekobrew
