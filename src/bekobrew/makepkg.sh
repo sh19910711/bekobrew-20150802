@@ -44,3 +44,6 @@ function makepkg() {
 
   rm -rf ${tmp_dir}
 }
+
+makepkg $@
+
