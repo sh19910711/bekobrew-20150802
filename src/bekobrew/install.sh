@@ -6,6 +6,7 @@ function install_package() {
   local package_name=''
   local package_version=''
   local package_release=''
+  local package_depends=()
 
   pushd ${tmpdir}
   bekobrew get $1
