@@ -19,7 +19,7 @@ function install_package() {
   local ret=$?
   if [ ${ret} -ne 0 ]; then
     for dep in ${package_depends[@]}; do
-      installed_package ${dep}
+      install_package ${dep}
     done
     bekobrew makepkg
     echo ${package_fullname} > ~/.bekobrew/installed_packages
