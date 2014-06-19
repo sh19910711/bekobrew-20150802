@@ -1,3 +1,5 @@
+# Usage: bekobrew get {package name}
+
 function get_package_info() {
   grep $1 ~/.bekobrew/packages.db
   package_name=`grep $1 ~/.bekobrew/packages.db     | cut -f1`
@@ -5,14 +7,13 @@ function get_package_info() {
   package_release=`grep $1 ~/.bekobrew/packages.db  | cut -f3`
   package_url=`grep $1 ~/.bekobrew/packages.db      | cut -f4`
   package_desc=`grep $1 ~/.bekobrew/packages.db     | cut -f5`
-
   package_fullname=${package_name}-${package_version}-${package_release}
 }
 
 tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
 pushd ${tmpdir}
 get_package_info $1
-echo ${package_desc}
+echo Download: ${package_fullname}
 wget --no-check-certificate -c ${package_url}
 tar xvf ${package_fullname}.tar.bz2
 popd
