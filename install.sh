@@ -8,10 +8,10 @@ function install_bekobrew() {
   local tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
   pushd $tmpdir
 
-  wget --no-check-certificate -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.31.tar.gz
+  wget --no-check-certificate -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.32.tar.gz
   tar xvf ./archive.tar.gz
 
-  local optdir=bekobrew-0.0.31
+  local optdir=bekobrew-0.0.32
 
   mkdir -p ${HOME}/local/opt || true
   cp -r ${optdir}/ ${HOME}/local/opt/
@@ -22,7 +22,7 @@ function install_bekobrew() {
   local bekobrew_path='export PATH=${HOME}/local/opt/bekobrew/bin:${PATH}'
   echo ${bekobrew_path} >> ~/.bashrc
   echo 'export PATH=${HOME}/local/`uname -s`-`uname -m`/bin:${PATH}' >> ~/.bashrc
-  echo 'export LD_LIBRARY_PATH=${HOME}/local/`uname -s`-`uname -m`/lib:${PATH}' >> ~/.bashrc
+  echo 'export LD_LIBRARY_PATH=${HOME}/local/`uname -s`-`uname -m`/lib:${LD_LIBRARY_PATH}' >> ~/.bashrc
 
   popd  # tmpdir
 
@@ -57,7 +57,7 @@ function install_develop_bekobrew() {
   local bekobrew_path='export PATH=${HOME}/local/opt/bekobrew/bin:${PATH}'
   echo ${bekobrew_path} >> ~/.bashrc
   echo 'export PATH=${HOME}/local/`uname -s`-`uname -m`/bin:${PATH}' >> ~/.bashrc
-  echo 'export LD_LIBRARY_PATH=${HOME}/local/`uname -s`-`uname -m`/lib:${PATH}' >> ~/.bashrc
+  echo 'export LD_LIBRARY_PATH=${HOME}/local/`uname -s`-`uname -m`/lib:${LD_LIBRARY_PATH}' >> ~/.bashrc
 
   popd # tmpdir
 
