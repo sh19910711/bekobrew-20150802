@@ -22,7 +22,7 @@ function install_bekobrew() {
   local bekobrew_path='export PATH=${HOME}/local/opt/bekobrew/bin:${PATH}'
   echo ${bekobrew_path} >> ~/.bashrc
   echo 'export PATH=${HOME}/local/`uname -s`-`uname -m`/bin:${PATH}' >> ~/.bashrc
-  echo 'export LD_LIBRARY_PATH=${HOME}/local/`uname -s`-`uname -m`/lib:${PATH}' >> ~/.bashrc
+  echo 'export LD_LIBRARY_PATH=${HOME}/local/`uname -s`-`uname -m`/lib:${LD_LIBRARY_PATH}' >> ~/.bashrc
 
   popd  # tmpdir
 
@@ -57,7 +57,7 @@ function install_develop_bekobrew() {
   local bekobrew_path='export PATH=${HOME}/local/opt/bekobrew/bin:${PATH}'
   echo ${bekobrew_path} >> ~/.bashrc
   echo 'export PATH=${HOME}/local/`uname -s`-`uname -m`/bin:${PATH}' >> ~/.bashrc
-  echo 'export LD_LIBRARY_PATH=${HOME}/local/`uname -s`-`uname -m`/lib:${PATH}' >> ~/.bashrc
+  echo 'export LD_LIBRARY_PATH=${HOME}/local/`uname -s`-`uname -m`/lib:${LD_LIBRARY_PATH}' >> ~/.bashrc
 
   popd # tmpdir
 
