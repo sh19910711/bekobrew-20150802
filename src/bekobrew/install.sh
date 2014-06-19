@@ -14,11 +14,10 @@ function install_package() {
 
   local package_fullname=${package_name}-${package_version}-${package_release}
 
-  # インストール済みであれば何もしない
+  # installed?
   grep ${package_fullname} ~/.bekobrew/installed_packages
   local ret=$?
   if [ ${ret} -ne 0 ]; then
-    # 依存するパッケージの検索
     for dep in ${package_depends[@]}; do
       installed_package ${dep}
     done
