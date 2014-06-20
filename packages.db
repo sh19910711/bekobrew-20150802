@@ -1,3 +1,2 @@
 hello	2.9	5	https://u-aizu.github.com/bekobrew/packages/hello-2.9-5.tar.bz2	GNU Hello
-openssl	1.0.1	1	https://u-aizu.github.com/bekobrew/packages/openssl-1.0.1-1.tar.bz2	Open Source toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols
 ruby	2.1.2	2	https://u-aizu.github.com/bekobrew/packages/ruby-2.1.2-2.tar.bz2	A dynamic, open source programming language with a focus onsimplicity and productivity.
