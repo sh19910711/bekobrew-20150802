@@ -1,12 +1,12 @@
 # Usage: bekobrew get {package name}
 
 function get_package_info() {
-  grep $1 ~/.bekobrew/packages.db
-  package_name=`grep $1 ~/.bekobrew/packages.db     | cut -f1`
-  package_version=`grep $1 ~/.bekobrew/packages.db  | cut -f2`
-  package_release=`grep $1 ~/.bekobrew/packages.db  | cut -f3`
-  package_url=`grep $1 ~/.bekobrew/packages.db      | cut -f4`
-  package_desc=`grep $1 ~/.bekobrew/packages.db     | cut -f5`
+  grep "^$1	" ~/.bekobrew/packages.db
+  package_name=`grep "^$1	" ~/.bekobrew/packages.db     | cut -f1`
+  package_version=`grep "^$1	" ~/.bekobrew/packages.db  | cut -f2`
+  package_release=`grep "^$1	" ~/.bekobrew/packages.db  | cut -f3`
+  package_url=`grep "^$1	" ~/.bekobrew/packages.db      | cut -f4`
+  package_desc=`grep "^$1	" ~/.bekobrew/packages.db     | cut -f5`
   package_fullname=${package_name}-${package_version}-${package_release}
 }
 
