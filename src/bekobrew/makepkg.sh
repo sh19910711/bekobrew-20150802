@@ -35,7 +35,7 @@ function makepkg() {
 
   cd ${source_dir}
 
-  for item in ${source}; do
+  for item in ${source[@]}; do
     if is_http_url ${item} || is_ftp_url ${item}; then
       wget --no-check-certificate -c ${item}
       [[ "${item}" =~ .*\/(.+)$ ]]
