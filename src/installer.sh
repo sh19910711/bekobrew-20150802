@@ -14,7 +14,7 @@ function install_bekobrew() {
   local optdir=bekobrew-<%= ENV['BEKOBREW_VERSION'] %>
 
   mkdir -p ${HOME}/local/opt || true
-  cp -r ${optdir}/ ${HOME}/local/opt/
+  cp -r ${optdir} ${HOME}/local/opt/
 
   rm -f ${HOME}/local/opt/bekobrew || true
   ln -s ${HOME}/local/opt/${optdir} ${HOME}/local/opt/bekobrew
@@ -49,7 +49,7 @@ function install_develop_bekobrew() {
   cp tmp/bekobrew ${optdir}/bin
 
   mkdir -p ${HOME}/local/opt || true
-  cp -r ${optdir}/ ${HOME}/local/opt/
+  cp -r ${optdir} ${HOME}/local/opt/
 
   rm -f ${HOME}/local/opt/bekobrew || true
   ln -s ${HOME}/local/opt/${optdir} ${HOME}/local/opt/bekobrew
