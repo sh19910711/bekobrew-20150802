@@ -5,15 +5,15 @@ function beko_config() {
 }
 
 function is_function() {
-  [ `type -t $1` == 'function' ]
+  [[ `type -t $1` == 'function' ]]
 }
 
 function is_http_url() {
-  [ "$1" =~ ^https?:\/\/ ] 
+  [[ "$1" =~ ^https?:\/\/ ]]
 }
 
 function is_ftp_url() {
-  [ "$1" =~ ^ftp:\/\/ ] 
+  [[ "$1" =~ ^ftp:\/\/ ]]
 }
 
 function makepkg() {
