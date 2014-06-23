@@ -8,13 +8,13 @@ function install_bekobrew() {
   local tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
   pushd $tmpdir
 
-  wget --no-check-certificate -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.34.tar.gz
+  wget --no-check-certificate -O archive.tar.gz https://github.com/u-aizu/bekobrew/archive/0.0.35.tar.gz
   tar xvf ./archive.tar.gz
 
-  local optdir=bekobrew-0.0.34
+  local optdir=bekobrew-0.0.35
 
   mkdir -p ${HOME}/local/opt || true
-  cp -r ${optdir}/ ${HOME}/local/opt/
+  cp -r ${optdir} ${HOME}/local/opt/
 
   rm -f ${HOME}/local/opt/bekobrew || true
   ln -s ${HOME}/local/opt/${optdir} ${HOME}/local/opt/bekobrew
@@ -49,7 +49,7 @@ function install_develop_bekobrew() {
   cp tmp/bekobrew ${optdir}/bin
 
   mkdir -p ${HOME}/local/opt || true
-  cp -r ${optdir}/ ${HOME}/local/opt/
+  cp -r ${optdir} ${HOME}/local/opt/
 
   rm -f ${HOME}/local/opt/bekobrew || true
   ln -s ${HOME}/local/opt/${optdir} ${HOME}/local/opt/bekobrew
