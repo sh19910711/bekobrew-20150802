@@ -42,7 +42,7 @@ function makepkg() {
       filename=${BASH_REMATCH[1]}
       tar xvf ${filename}
     else
-      cp ${item} ${source_dir}
+      cp ${current_dir}/${item} ${source_dir}
     fi
   done
 
