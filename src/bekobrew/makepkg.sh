@@ -8,6 +8,14 @@ function is_function() {
   [ `type -t $1` == 'function' ]
 }
 
+function is_http_url() {
+  [ "$1" =~ ^https?:\/\/ ] 
+}
+
+function is_ftp_url() {
+  [ "$1" =~ ^ftp:\/\/ ] 
+}
+
 function makepkg() {
   local current_dir=`pwd`
 
@@ -27,12 +35,15 @@ function makepkg() {
 
   cd ${source_dir}
 
-  # download
-  for url in $source; do
-    wget --no-check-certificate -c $url
-    [[ "$url" =~ .*\/(.+)$ ]]
-    filename=${BASH_REMATCH[1]}
-    tar xvf ${filename}
+  for item in ${source}; do
+    if is_http_url ${item} || is_ftp_url ${item}; then
+      wget --no-check-certificate -c ${item}
+      [[ "${item}" =~ .*\/(.+)$ ]]
+      filename=${BASH_REMATCH[1]}
+      tar xvf ${filename}
+    else
+      cp ${item} ${source_dir}
+    fi
   done
 
   echo '==> Preparing...'
