@@ -4,6 +4,10 @@ function beko_config() {
   ./configure --prefix=${HOME}/local/`uname -s`-`uname -m` $@
 }
 
+function is_function() {
+  [ `type -t $1` == 'function' ]
+}
+
 function makepkg() {
   local current_dir=`pwd`
 
@@ -31,11 +35,14 @@ function makepkg() {
     tar xvf ${filename}
   done
 
+  echo '==> Preparing...'
+  is_function prepare && cd ${current_dir} && prepare
+
   echo '==> Building...'
   cd ${current_dir} && build
 
   echo '==> Checking...'
-  cd ${current_dir} && check
+  is_function check && cd ${current_dir} && check
 
   echo '==> Packaging...'
   cd ${current_dir} && package
