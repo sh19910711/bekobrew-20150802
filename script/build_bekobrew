@@ -1,12 +1,20 @@
 #!/bin/bash
 
-# load config
-source config
+function build() {
+  # load config
+  source BuildConfig
 
-# build bekobrew command
-mkdir -p tmp/ || true
-rm -f tmp/bekobrew || true
-erb src/bekobrew.sh > tmp/bekobrew
-chmod a+x tmp/bekobrew
-chmod a-w tmp/bekobrew
+  local prefix=tmp/bekobrew
 
+  # build bekobrew command
+  rm -rf ${prefix} || true
+  mkdir -p ${prefix} || true
+
+  sed '1i #!/bin/bash' ./src/bekobrew/bekobrew.bash > ${prefix}/bekobrew
+  cp -r ./src/bekobrew/sub_command ${prefix}/
+
+  chmod a+x ${prefix}/bekobrew
+  chmod a-w ${prefix}/bekobrew
+}
+
+build
