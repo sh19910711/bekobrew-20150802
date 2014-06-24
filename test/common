@@ -1,1 +1,1 @@
-export PATH=`pwd`/tmp:${PATH}
+export PATH=`pwd`/tmp/bekobrew:${PATH}

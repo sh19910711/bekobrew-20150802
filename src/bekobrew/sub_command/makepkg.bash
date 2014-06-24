@@ -16,7 +16,7 @@ function is_ftp_url() {
   [[ "$1" =~ ^ftp:\/\/ ]]
 }
 
-function makepkg() {
+function makepkg_main() {
   local current_dir=`pwd`
 
   shopt -u extglob
@@ -62,6 +62,4 @@ function makepkg() {
 
   rm -rf ${tmpdir}
 }
-
-makepkg $@
 
