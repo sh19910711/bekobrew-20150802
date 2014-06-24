@@ -10,7 +10,9 @@ function build() {
   rm -rf ${prefix} || true
   mkdir -p ${prefix} || true
 
-  cp src/installer/install.bash ${prefix}/install.bash
+  cp src/installer/install.bash ${prefix}/install.bash.erb
+  erb ${prefix}/install.bash.erb > ${prefix}/install.bash
+  rm ${prefix}/install.bash.erb
   chmod -w ${prefix}/install.bash
 }
 
