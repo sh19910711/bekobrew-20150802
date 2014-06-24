@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # load config
-source config
+source BuildConfig
 
 if [ "${TRAVIS_REPO_SLUG}" == "sh19910711/bekobrew" ]; then
   ./script/travis/build_sh19910711
