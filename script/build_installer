@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# load config
-source config
+function build() {
+  # load config
+  source BuildConfig
 
-# build
-mkdir -p tmp/ || true
-rm -f tmp/install.sh || true
-erb src/installer.sh > tmp/install.sh
-chmod -w tmp/install.sh
+  local prefix=tmp/installer
 
+  # build
+  rm -rf ${prefix} || true
+  mkdir -p ${prefix} || true
+
+  cp src/installer/install.bash ${prefix}/install.bash
+  chmod -w ${prefix}/install.bash
+}
+
+build

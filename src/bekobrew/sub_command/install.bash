@@ -1,7 +1,7 @@
 # Usage: bekobrew install {package-name}
 # e.g. bekobrew install hello
 
-function install_package() {
+function install_main() {
   local tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
   local package_name=''
   local package_version=''
@@ -29,6 +29,4 @@ function install_package() {
   popd
   rm -rf ${tmpdir}
 }
-
-install_package $@
 

@@ -10,13 +10,15 @@ function get_package_info() {
   package_fullname=${package_name}-${package_version}-${package_release}
 }
 
-tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
-pushd ${tmpdir}
-get_package_info $1
-echo Download: ${package_fullname}
-wget --no-check-certificate -c ${package_url}
-tar xvf ${package_fullname}.tar.bz2
-popd
-mkdir -p ./${package_name} || true
-cp ${tmpdir}/${package_name}/BEKOBUILD ./${package_name}/
-rm -rf ${tmpdir}
+function get_main() {
+  local tmpdir=`mktemp -d /tmp/bekobrew-XXXXXX`
+  pushd ${tmpdir}
+  get_package_info $1
+  echo Download: ${package_fullname}
+  wget --no-check-certificate -c ${package_url}
+  tar xvf ${package_fullname}.tar.bz2
+  popd
+  mkdir -p ./${package_name} || true
+  cp ${tmpdir}/${package_name}/BEKOBUILD ./${package_name}/
+  rm -rf ${tmpdir}
+}
