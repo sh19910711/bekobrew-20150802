@@ -5,3 +5,4 @@ hello	2.9	6	https://u-aizu.github.com/bekobrew/packages/hello-2.9-6.tar.bz2	GNU 
 openssl	1.0.1	6	https://u-aizu.github.com/bekobrew/packages/openssl-1.0.1-6.tar.bz2	Open Source toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols
 ruby	2.1.2	3	https://u-aizu.github.com/bekobrew/packages/ruby-2.1.2-3.tar.bz2	A dynamic, open source programming language with a focus onsimplicity and productivity.
 tar	1.27	2	https://u-aizu.github.com/bekobrew/packages/tar-1.27-2.tar.bz2	GNU Tar provides the ability to create tar archives, as well as various other kinds of manipulation.
+tree	1.7.0	2	https://u-aizu.github.com/bekobrew/packages/tree-1.7.0-2.tar.bz2	A recursive directory listing command.
