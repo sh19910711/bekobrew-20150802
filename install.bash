@@ -46,9 +46,10 @@ function install_develop_bekobrew() {
 
   rm -rf ${optdir} || true
   mkdir -p ${optdir}/bin
-  cp tmp/bekobrew ${optdir}/bin
+  cp -r tmp/bekobrew/* ${optdir}/bin
 
   mkdir -p ${HOME}/local/opt || true
+  rm -rf ${HOME}/local/opt/${optdir}
   cp -r ${optdir} ${HOME}/local/opt/
 
   rm -f ${HOME}/local/opt/bekobrew || true
