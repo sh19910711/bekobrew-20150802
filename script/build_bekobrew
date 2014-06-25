@@ -10,8 +10,8 @@ function build() {
   rm -rf ${prefix} || true
   mkdir -p ${prefix} || true
 
-  sed '1i #!/bin/bash' ./src/bekobrew/bekobrew.bash > ${prefix}/bekobrew/bekobrew
-  cp -r ./src/bekobrew/sub_command ${prefix}/
+  sed '1i #!/bin/bash' ./src/bekobrew/bekobrew.bash > ${prefix}/bekobrew
+  cp -r ./src/bekobrew/sub_command ${prefix}/sub_command
 
   chmod a+x ${prefix}/bekobrew
   chmod a-w ${prefix}/bekobrew
