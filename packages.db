@@ -3,3 +3,4 @@ coreutils	8.22	2	https://u-aizu.github.com/bekobrew/packages/coreutils-8.22-2.ta
 git	2.0.0	2	https://u-aizu.github.com/bekobrew/packages/git-2.0.0-2.tar.bz2	A free and open source distributed version control system.
 hello	2.9	6	https://u-aizu.github.com/bekobrew/packages/hello-2.9-6.tar.bz2	GNU Hello
 openssl	1.0.1	6	https://u-aizu.github.com/bekobrew/packages/openssl-1.0.1-6.tar.bz2	Open Source toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols
+ruby	2.1.2	3	https://u-aizu.github.com/bekobrew/packages/ruby-2.1.2-3.tar.bz2	A dynamic, open source programming language with a focus onsimplicity and productivity.
