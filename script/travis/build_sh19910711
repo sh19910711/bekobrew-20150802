@@ -14,7 +14,7 @@ function build_gh_pages() {
 
 case ${TRAVIS_BRANCH} in
 
-"master") build_master && build_gh_pages ;
+"master") build_master ; build_gh_pages ;
 
 esac
 

@@ -41,7 +41,7 @@ function install_develop_bekobrew() {
   cd bekobrew
   make bekobrew
 
-  source config
+  source BuildConfig
   local optdir=bekobrew-${BEKOBREW_VERSION}
 
   rm -rf ${optdir} || true
